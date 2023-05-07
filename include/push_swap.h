@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:29:56 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/07 18:48:53 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/07 23:34:06 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,15 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
+struct s_2stacks
+{
+	t_node	*stack_a;
+	t_node	*stack_b;
+};
+
 // develop_utils.c
 void	print_argv(char **argv);
-void	print_list(t_node *node);
+void	print_stack(t_node *node);
 void	print_2d_array(char **str);
 
 // input_ops.c
@@ -45,6 +51,8 @@ void	free_2d_array(char **str);
 void	error_message(void);
 
 // main.c
+char	**prepare_input(char **argv);
+void	init_stack(char **input, struct s_2stacks *two_stacks);
 int		main(int argc, char **argv);
 
 // stack_ops.c
@@ -52,5 +60,7 @@ t_node	*create_node(int num);
 void	add_node(t_node **head, int num);
 bool	ps_atoi_ln(const char *str, int *result);
 void	free_stack(t_node *head);
+int		stack_valid(t_node *head);
+int		duplicate(t_node *head, int num);
 
 #endif

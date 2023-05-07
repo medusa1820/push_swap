@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 20:00:20 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/07 19:05:30 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/07 19:17:11 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,6 @@ int	check_input(int argc, char **argv)
 		return (EXIT_FAILURE);
 	else
 		return (EXIT_SUCCESS);
-}
-
-char	*join_inputs(char **argv)
-{
-	char	*input_total;
-	int		i;
-
-	input_total = ft_strdup("");
-	i = 1;
-	while (argv[i])
-	{
-		input_total = ft_strjoin_ps(input_total, argv[i]);
-		i++;
-	}
-	return (input_total);
 }
 
 char	*ft_strjoin_ps(char const *s1, char const *s2)
@@ -61,42 +46,47 @@ char	*ft_strjoin_ps(char const *s1, char const *s2)
 	return (s3);
 }
 
-int	streamline_input(char **argv)
+char	*join_inputs(char **argv)
 {
-	t_node	*head;
-	int		i;
-	int		num;
 	char	*input_total;
-	char	**split_input_total;
+	int		i;
 
-	input_total = join_inputs(argv);
-	split_input_total = ft_split(input_total, ' ');
-	head = NULL;
-	i = 0;
-	while (split_input_total[i])
+	input_total = ft_strdup("");
+	i = 1;
+	while (argv[i])
 	{
-		if (!ps_atoi_ln(split_input_total[i], &num))
-			return (EXIT_FAILURE);
-		add_node(&head, num);
+		input_total = ft_strjoin_ps(input_total, argv[i]);
 		i++;
 	}
-	// print_list(head);
-	free_stack(head);
-	free(input_total);
-	// print_2d_array(split_input_total);
-	free_2d_array(split_input_total);
-	return (EXIT_SUCCESS);
+	return (input_total);
 }
 
-void	free_2d_array(char **str)
+// Function to convert a string to an integer
+bool	ps_atoi_ln(const char *str, int *result)
 {
-	int	i;
+	int		i;
+	int		sign;
+	long	temp;
 
 	i = 0;
-	while (str[i])
+	sign = 1;
+	temp = 0;
+	if (str[0] == '+' || str[0] == '-')
 	{
-		free (str[i]);
+		if (str[0] == '-')
+			sign = -1;
 		i++;
 	}
-	free(str);
+	if (str[i] == 0)
+		return (false);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (false);
+		temp = (sign * (str[i++] - '0') + (temp * 10));
+		if (temp > INT_MAX || temp < INT_MIN)
+			return (false);
+		*result = temp;
+	}
+	return (true);
 }

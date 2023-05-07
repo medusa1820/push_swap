@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:00:32 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/07 17:05:28 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/07 23:19:36 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	print_argv(char **argv)
 	}
 }
 
-void	print_list(t_node *node)
+void	print_stack(t_node *node)
 {
 	while (node != NULL)
 	{
-		printf(" %d ->", node->num);
+		printf("%d -> ", node->num);
 		node = node->next;
 	}
-	printf(" NULL");
+	printf("NULL");
 	printf("\n");
 }
 

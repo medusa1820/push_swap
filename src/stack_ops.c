@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:41:53 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/07 15:13:50 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/07 23:39:00 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,36 +45,6 @@ void	add_node(t_node **head, int num)
 	new_node->prev = current;
 }
 
-// Function to convert a string to an integer
-bool	ps_atoi_ln(const char *str, int *result)
-{
-	int		i;
-	int		sign;
-	long	temp;
-
-	i = 0;
-	sign = 1;
-	temp = 0;
-	if (str[0] == '+' || str[0] == '-')
-	{
-		if (str[0] == '-')
-			sign = -1;
-		i++;
-	}
-	if (str[i] == 0)
-		return (false);
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (false);
-		temp = (sign * (str[i++] - '0') + (temp * 10));
-		if (temp > INT_MAX || temp < INT_MIN)
-			return (false);
-		*result = temp;
-	}
-	return (true);
-}
-
 void	free_stack(t_node *head)
 {
 	t_node	*current;
@@ -87,4 +57,51 @@ void	free_stack(t_node *head)
 		free(current);
 		current = next_node;
 	}
+}
+
+int	stack_valid(t_node *head)
+{
+	t_node	*current;
+
+	current = head;
+	while (current != NULL)
+	{
+		if (current->num != 0)
+			return (1);
+		current = current->next;
+	}
+	return (0);
+}
+
+int	duplicate(t_node *head, int num)
+{
+	t_node	*current;
+
+	current = head;
+	while (current != NULL)
+	{
+		if (current->num == num)
+			return (1);
+		current = current->next;
+	}
+	return (0);
+}
+
+int is_sorted(t_node *head) {
+	if (!head || !head->next) {
+		// empty list or list with only one node is considered sorted
+		return 1;
+	}
+
+	t_node *current = head;
+	while (current->next) {
+		if (current->num > current->next->num) {
+			// list is not sorted
+			return 0;
+		}
+		current = current->next;
+	}
+
+	// list is sorted
+	return 1;
 }
