@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
+/*   input_ops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 20:00:20 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/07 17:14:38 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/07 19:05:30 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,10 @@ int	streamline_input(char **argv)
 		add_node(&head, num);
 		i++;
 	}
-	print_list(head);
+	// print_list(head);
 	free_stack(head);
-	// free(input_total);
-	print_2d_array(split_input_total);
+	free(input_total);
+	// print_2d_array(split_input_total);
 	free_2d_array(split_input_total);
 	return (EXIT_SUCCESS);
 }

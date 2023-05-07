@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:29:56 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/07 16:19:47 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/07 18:48:53 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,20 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
-// check_input.c
+// develop_utils.c
+void	print_argv(char **argv);
+void	print_list(t_node *node);
+void	print_2d_array(char **str);
+
+// input_ops.c
 int		check_input(int argc, char **argv);
 char	*join_inputs(char **argv);
 char	*ft_strjoin_ps(char const *s1, char const *s2);
 int		streamline_input(char **argv);
 void	free_2d_array(char **str);
 
-// develop_utils.c
-void	print_argv(char **argv);
-void	print_list(t_node *node);
-void	print_2d_array(char **str);
-
-// init_input.c
+// input_utils.c
+void	error_message(void);
 
 // main.c
 int		main(int argc, char **argv);

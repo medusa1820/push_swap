@@ -7,11 +7,11 @@ LDFLAGS = -flto -O3 -march=nocona -g
 
 SRC_DIR	=	./src/
 
-SRC		:=	check_input.c \
-			develop_utils.c \
+SRC		:=	develop_utils.c \
 			get_next_line_utils.c \
 			get_next_line.c \
-			init_input.c \
+			input_ops.c \
+			input_utils.c \
 			main.c \
 			stack_ops.c \
 
