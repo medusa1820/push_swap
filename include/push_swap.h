@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:29:56 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/08 13:48:48 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/08 18:32:57 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ struct s_2stacks
 // develop_utils.c
 void	print_argv(char **argv);
 void	print_stack(t_node *node);
+void	print_stack_reverse(t_node *node);
+t_node	*ft_lstlast_ps(t_node *lst);
 void	print_2d_array(char **str);
 
 // exit_utils.c
@@ -57,10 +59,19 @@ char	**prepare_input(char **argv);
 void	init_stack(char **input, struct s_2stacks *two_stacks);
 int		main(int argc, char **argv);
 
+// push_command.c
+void	pb(struct s_2stacks *two_stacks);
+void	pa(struct s_2stacks *two_stacks);
+
 // stack_ops.c
 t_node	*create_node(int num);
 void	add_node(t_node **head, int num);
 int		is_duplicate(t_node *head, int num);
 int		is_sorted(t_node *head);
+
+// swap_commands.c
+void	sa(struct s_2stacks *two_stacks);
+void	sb(struct s_2stacks *two_stacks);
+void	ss(struct s_2stacks *two_stacks);
 
 #endif

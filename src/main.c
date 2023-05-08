@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:27:51 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/08 13:37:17 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/08 18:31:13 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,27 @@ int	main(int argc, char **argv)
 	struct s_2stacks	two_stacks;
 	char				**input;
 
+	two_stacks.stack_a = NULL;
+	two_stacks.stack_b = NULL;
 	input = prepare_input(argv);
 	init_stack(input, &two_stacks);
-	print_argv(argv);
+	// print_argv(argv);
 	print_stack(two_stacks.stack_a);
+	print_stack(two_stacks.stack_b);
+	pb(&two_stacks);
+	pb(&two_stacks);
+	pb(&two_stacks);
+	print_stack(two_stacks.stack_a);
+	print_stack(two_stacks.stack_b);
+	ss(&two_stacks);
+	print_stack(two_stacks.stack_a);
+	print_stack(two_stacks.stack_b);
+	// print_stack_reverse(two_stacks.stack_a);
+	// print_stack_reverse(two_stacks.stack_b);
 	free_stack(two_stacks.stack_a);
+	free_stack(two_stacks.stack_b);
 	printf("reached end of main()\n");
-	system("leaks push_swap");
+	// system("leaks push_swap");
 	return (0);
 }
 
