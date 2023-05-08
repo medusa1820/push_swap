@@ -8,10 +8,10 @@ LDFLAGS = -flto -O3 -march=nocona -g
 SRC_DIR	=	./src/
 
 SRC		:=	develop_utils.c \
+			exit_utils.c \
 			get_next_line_utils.c \
 			get_next_line.c \
 			input_ops.c \
-			input_utils.c \
 			main.c \
 			stack_ops.c \
 

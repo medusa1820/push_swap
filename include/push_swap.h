@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:29:56 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/07 23:34:06 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/08 13:48:48 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,17 @@ void	print_argv(char **argv);
 void	print_stack(t_node *node);
 void	print_2d_array(char **str);
 
-// input_ops.c
-int		check_input(int argc, char **argv);
-char	*join_inputs(char **argv);
-char	*ft_strjoin_ps(char const *s1, char const *s2);
-int		streamline_input(char **argv);
-void	free_2d_array(char **str);
-
-// input_utils.c
+// exit_utils.c
 void	error_message(void);
+void	free_2d_array(char **str);
+void	free_stack(t_node *head);
+void	exit_util(t_node *head, char **input);
+void	exit_util_sorted(t_node *head, char **input);
+
+// input_ops.c
+char	*ft_strjoin_ps(char const *s1, char const *s2);
+char	*join_inputs(char **argv);
+bool	ps_atoi_ln(const char *str, int *result);
 
 // main.c
 char	**prepare_input(char **argv);
@@ -58,9 +60,7 @@ int		main(int argc, char **argv);
 // stack_ops.c
 t_node	*create_node(int num);
 void	add_node(t_node **head, int num);
-bool	ps_atoi_ln(const char *str, int *result);
-void	free_stack(t_node *head);
-int		stack_valid(t_node *head);
-int		duplicate(t_node *head, int num);
+int		is_duplicate(t_node *head, int num);
+int		is_sorted(t_node *head);
 
 #endif

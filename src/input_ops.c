@@ -6,21 +6,11 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 20:00:20 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/07 19:17:11 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/08 13:46:39 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	check_input(int argc, char **argv)
-{
-	if (argc == 1)
-		return (EXIT_FAILURE);
-	else if (argc == 2 && argv[1][0] == '\0')
-		return (EXIT_FAILURE);
-	else
-		return (EXIT_SUCCESS);
-}
 
 char	*ft_strjoin_ps(char const *s1, char const *s2)
 {

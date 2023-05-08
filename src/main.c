@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:27:51 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/07 23:34:15 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/08 13:37:17 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,14 @@ void	init_stack(char **input, struct s_2stacks *two_stacks)
 	while (input[i])
 	{
 		if (!ps_atoi_ln(input[i], &num))
-		{
-			free_stack(head);
-			free_2d_array(input);
-			error_message();
-		}
-		if (duplicate(head, num))
-		{
-			free_stack(head);
-			free_2d_array(input);
-			error_message();
-		}
+			exit_util(head, input);
+		if (is_duplicate(head, num))
+			exit_util(head, input);
 		add_node(&head, num);
 		i++;
 	}
-	// check if stack is sorted
+	if (is_sorted(head))
+		exit_util_sorted(head, input);
 	free_2d_array(input);
 	two_stacks->stack_a = head;
 }
