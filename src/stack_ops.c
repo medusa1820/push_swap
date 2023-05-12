@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:41:53 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/08 13:48:58 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/12 17:06:30 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,19 @@ int	is_sorted(t_node *head)
 		current = current->next;
 	}
 	return (1);
+}
+
+int	count_nodes(t_node *stack)
+{
+	t_node	*node;
+	int		count;
+
+	node = stack;
+	count = 0;
+	while (node)
+	{
+		count++;
+		node = node->next;
+	}
+	return (count);
 }

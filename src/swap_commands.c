@@ -6,13 +6,13 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 17:55:08 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/08 18:36:07 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/10 17:22:26 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(struct s_2stacks *two_stacks)
+void	swap_a(struct s_2stacks *two_stacks)
 {
 	t_node	*temp;
 
@@ -26,11 +26,10 @@ void	sa(struct s_2stacks *two_stacks)
 		temp->prev = NULL;
 		two_stacks->stack_a->prev = temp;
 		two_stacks->stack_a = temp;
-		ft_printf("sa\n");
 	}
 }
 
-void	sb(struct s_2stacks *two_stacks)
+void	swap_b(struct s_2stacks *two_stacks)
 {
 	t_node	*temp;
 
@@ -44,13 +43,24 @@ void	sb(struct s_2stacks *two_stacks)
 		temp->prev = NULL;
 		two_stacks->stack_b->prev = temp;
 		two_stacks->stack_b = temp;
-		ft_printf("sb\n");
 	}
+}
+
+void	sa(struct s_2stacks *two_stacks)
+{
+	swap_a(two_stacks);
+	ft_printf("sa\n");
+}
+
+void	sb(struct s_2stacks *two_stacks)
+{
+	swap_b(two_stacks);
+	ft_printf("sb\n");
 }
 
 void	ss(struct s_2stacks *two_stacks)
 {
-	sa(two_stacks);
-	sb(two_stacks);
+	swap_a(two_stacks);
+	swap_b(two_stacks);
 	ft_printf("ss\n");
 }

@@ -14,7 +14,10 @@ SRC		:=	develop_utils.c \
 			input_ops.c \
 			main.c \
 			push_commands.c \
+			rev_rotate_commands.c \
+			rotate_commands.c \
 			stack_ops.c \
+			stack_ops2.c \
 			swap_commands.c \
 
 HEADER = -I ./include -I ../LeakSanitizer 

@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:29:56 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/08 18:32:57 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/12 16:58:19 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,33 @@ int		main(int argc, char **argv);
 void	pb(struct s_2stacks *two_stacks);
 void	pa(struct s_2stacks *two_stacks);
 
+// rev_rotate_commands.c
+void	reverse_rotate_a(struct s_2stacks *two_stacks);
+void	reverse_rotate_b(struct s_2stacks *two_stacks);
+void	rra(struct s_2stacks *two_stacks);
+void	rrb(struct s_2stacks *two_stacks);
+void	rrr(struct s_2stacks *two_stacks);
+
+// rotate_commands.c
+void	rotate_a(struct s_2stacks *two_stacks);
+void	rotate_b(struct s_2stacks *two_stacks);
+void	ra(struct s_2stacks *two_stacks);
+void	rb(struct s_2stacks *two_stacks);
+void	rr(struct s_2stacks *two_stacks);
+
 // stack_ops.c
 t_node	*create_node(int num);
 void	add_node(t_node **head, int num);
 int		is_duplicate(t_node *head, int num);
 int		is_sorted(t_node *head);
+int		count_nodes(t_node *stack);
+
+// stack_ops2.c
+t_node	*find_last_node(t_node *head);
 
 // swap_commands.c
+void	swap_a(struct s_2stacks *two_stacks);
+void	swap_b(struct s_2stacks *two_stacks);
 void	sa(struct s_2stacks *two_stacks);
 void	sb(struct s_2stacks *two_stacks);
 void	ss(struct s_2stacks *two_stacks);

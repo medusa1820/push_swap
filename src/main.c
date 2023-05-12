@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:27:51 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/08 18:31:13 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/12 17:08:19 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int	main(int argc, char **argv)
 	two_stacks.stack_b = NULL;
 	input = prepare_input(argv);
 	init_stack(input, &two_stacks);
-	// print_argv(argv);
 	print_stack(two_stacks.stack_a);
 	print_stack(two_stacks.stack_b);
 	pb(&two_stacks);
@@ -63,14 +62,16 @@ int	main(int argc, char **argv)
 	pb(&two_stacks);
 	print_stack(two_stacks.stack_a);
 	print_stack(two_stacks.stack_b);
-	ss(&two_stacks);
+	ra(&two_stacks);
+	rb(&two_stacks);
 	print_stack(two_stacks.stack_a);
 	print_stack(two_stacks.stack_b);
-	// print_stack_reverse(two_stacks.stack_a);
-	// print_stack_reverse(two_stacks.stack_b);
+	rr(&two_stacks);
+	print_stack(two_stacks.stack_a);
+	print_stack(two_stacks.stack_b);
+	printf("reached end of main()\n");
 	free_stack(two_stacks.stack_a);
 	free_stack(two_stacks.stack_b);
-	printf("reached end of main()\n");
 	// system("leaks push_swap");
 	return (0);
 }
