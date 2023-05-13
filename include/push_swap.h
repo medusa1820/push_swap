@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:29:56 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/12 16:58:19 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/13 20:03:14 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 typedef struct s_node
 {
 	int				num;
+	int				index;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
@@ -41,6 +42,7 @@ void	print_stack(t_node *node);
 void	print_stack_reverse(t_node *node);
 t_node	*ft_lstlast_ps(t_node *lst);
 void	print_2d_array(char **str);
+void	print_stack_index(t_node *node);
 
 // exit_utils.c
 void	error_message(void);
@@ -53,10 +55,12 @@ void	exit_util_sorted(t_node *head, char **input);
 char	*ft_strjoin_ps(char const *s1, char const *s2);
 char	*join_inputs(char **argv);
 bool	ps_atoi_ln(const char *str, int *result);
+void	bubble_sort(int arr[], int size);
 
 // main.c
 char	**prepare_input(char **argv);
-void	init_stack(char **input, struct s_2stacks *two_stacks);
+void	init_stack(char **input, struct s_2stacks *two_stacks, int *nr_nodes);
+void	index_input(char **input, int nr_nodes, struct s_2stacks *two_stacks);
 int		main(int argc, char **argv);
 
 // push_command.c

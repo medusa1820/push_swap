@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 20:00:20 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/08 13:46:39 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/13 19:29:54 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,28 @@ bool	ps_atoi_ln(const char *str, int *result)
 		*result = temp;
 	}
 	return (true);
+}
+
+void	bubble_sort(int arr[], int size)
+{
+	int	i;
+	int	j;
+	int	temp;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		j = 0;
+		while (j < size - i - 1)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				temp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
 }
