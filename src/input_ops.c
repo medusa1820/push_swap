@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 20:00:20 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/13 19:29:54 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/14 18:46:56 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ char	*join_inputs(char **argv)
 	return (input_total);
 }
 
-// Function to convert a string to an integer
 bool	ps_atoi_ln(const char *str, int *result)
 {
 	int		i;

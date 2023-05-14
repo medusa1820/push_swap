@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_ops2.c                                       :+:      :+:    :+:   */
+/*   develop_utils_1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 17:49:42 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/12 16:48:02 by musenov          ###   ########.fr       */
+/*   Created: 2023/05/14 18:45:21 by musenov           #+#    #+#             */
+/*   Updated: 2023/05/14 18:45:29 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*find_last_node(t_node *head)
+void	print_2d_array(char **str)
 {
-	t_node	*current;
+	int	i;
 
-	current = head;
-	while (current != NULL && current->next != NULL)
-		current = current->next;
-	return (current);
+	i = 0;
+	while (str[i])
+	{
+		ft_putstr_fd(str[i], 1);
+		ft_putchar_fd('\n', 1);
+		i++;
+	}
 }

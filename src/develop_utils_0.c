@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   develop_utils.c                                    :+:      :+:    :+:   */
+/*   develop_utils_0.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:00:32 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/14 14:03:29 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/14 18:45:19 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,4 @@ t_node	*ft_lstlast_ps(t_node *lst)
 		lst = (*lst).next;
 	}
 	return (lst);
-}
-
-void	print_2d_array(char **str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putstr_fd(str[i], 1);
-		ft_putchar_fd('\n', 1);
-		i++;
-	}
 }

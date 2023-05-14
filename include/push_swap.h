@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:29:56 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/13 20:03:14 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/14 21:48:03 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 # include "get_next_line.h"
 # include <stdbool.h>
-# include <limits.h>
+// # include <limits.h>
 # include <math.h>
 # include <fcntl.h>
 
-# include "../lib/ft_printf/libft/libft.h"
+// # include "../lib/ft_printf/libft/libft.h"
 # include "../lib/ft_printf/ft_printf.h"
 
 typedef struct s_node
@@ -36,13 +36,15 @@ struct s_2stacks
 	t_node	*stack_b;
 };
 
-// develop_utils.c
+// develop_utils_0.c
 void	print_argv(char **argv);
 void	print_stack(t_node *node);
+void	print_stack_index(t_node *node);
 void	print_stack_reverse(t_node *node);
 t_node	*ft_lstlast_ps(t_node *lst);
+
+// develop_utils_1.c
 void	print_2d_array(char **str);
-void	print_stack_index(t_node *node);
 
 // exit_utils.c
 void	error_message(void);
@@ -81,15 +83,26 @@ void	ra(struct s_2stacks *two_stacks);
 void	rb(struct s_2stacks *two_stacks);
 void	rr(struct s_2stacks *two_stacks);
 
-// stack_ops.c
+// sort_stack_3_nodes.c
+t_node	*find_max_node(struct s_2stacks *two_stacks);
+void	sort_stack_3_nodes(struct s_2stacks *two_stacks);
+
+// sort_stack.c
+int		ft_sqrt(int number);
+int		count_r(t_node *stack, int index);
+void	index_input(char **input, int nr_nodes, struct s_2stacks *two_stacks);
+void	sort_stack_2b(struct s_2stacks *two_stacks, int nr_nodes);
+void	sort_stack_2a(struct s_2stacks *two_stacks, int nr_nodes);
+
+// stack_utils_0.c
 t_node	*create_node(int num);
 void	add_node(t_node **head, int num);
+int		count_nodes(t_node *stack);
+t_node	*find_last_node(t_node *head);
+
+// stack_utils_1.c
 int		is_duplicate(t_node *head, int num);
 int		is_sorted(t_node *head);
-int		count_nodes(t_node *stack);
-
-// stack_ops2.c
-t_node	*find_last_node(t_node *head);
 
 // swap_commands.c
 void	swap_a(struct s_2stacks *two_stacks);
