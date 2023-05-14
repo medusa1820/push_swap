@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:27:51 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/13 22:20:00 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/14 14:11:58 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,11 @@ void	index_input(char **input, int nr_nodes, struct s_2stacks *two_stacks)
 		i++;
 	}
 	bubble_sort(sorted_array, nr_nodes);
-	printf("Array after sorting: ");
-	for (i = 0; i <= nr_nodes; i++) {
-		printf("%d ", sorted_array[i]);
-	}
-	printf("\n");
+	// ft_printf("Array after sorting: ");
+	// for (i = 0; i <= nr_nodes; i++) {
+	// 	ft_printf("%d ", sorted_array[i]);
+	// }
+	// ft_printf("\n");
 	cursor = two_stacks->stack_a;
 	while (cursor)
 	{
@@ -105,10 +105,10 @@ void	sort_stack(struct s_2stacks *two_stacks, int nr_nodes)
 {
 	int		i;
 	int		range;
-	// t_node	*cursor;
 
 	range = ft_sqrt(nr_nodes) * 14 / 10;
-	// cursor = two_stacks->stack_a;
+	// ft_printf("range: %d\n", range);
+	i = 0;
 	while (two_stacks->stack_a)
 	{
 		if (two_stacks->stack_a->index <= i)
@@ -167,6 +167,14 @@ void	k_sort2(struct s_2stacks *two_stacks, int nr_nodes)
 	}
 }
 
+void	test_instruction_call(struct s_2stacks *two_stacks)
+{
+	pb(two_stacks);
+	rb(two_stacks);
+	pb(two_stacks);
+	ra(two_stacks);
+}
+
 int	main(int argc, char **argv)
 {
 	struct s_2stacks	two_stacks;
@@ -178,17 +186,19 @@ int	main(int argc, char **argv)
 	input = prepare_input(argv);
 	init_stack(input, &two_stacks, &nr_nodes);
 	index_input(input, nr_nodes, &two_stacks);
-	print_stack(two_stacks.stack_a);
-	print_stack(two_stacks.stack_b);
+	// print_stack(two_stacks.stack_a);
+	// print_stack(two_stacks.stack_b);
+	// ft_printf("nr_nodes: %d\n", nr_nodes);
 	sort_stack(&two_stacks, nr_nodes);
 	k_sort2(&two_stacks, nr_nodes);
-	print_stack(two_stacks.stack_a);
-	print_stack(two_stacks.stack_b);
-	print_stack_index(two_stacks.stack_a);
-	printf("reached end of main()\n");
+	// test_instruction_call(&two_stacks);
+	// print_stack(two_stacks.stack_a);
+	// print_stack(two_stacks.stack_b);
+	// print_stack_index(two_stacks.stack_a);
+	// ft_printf("reached end of main()\n");
 	free_stack(two_stacks.stack_a);
 	free_stack(two_stacks.stack_b);
-	system("leaks push_swap");
+	// system("leaks push_swap");
 	return (0);
 }
 

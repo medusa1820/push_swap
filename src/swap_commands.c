@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 17:55:08 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/10 17:22:26 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/14 13:56:58 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,3 +64,32 @@ void	ss(struct s_2stacks *two_stacks)
 	swap_b(two_stacks);
 	ft_printf("ss\n");
 }
+
+/*
+
+void	k_sort1(t_stack *stack_a, t_stack *stack_b, int length)
+{
+	int	i;
+	int	range;
+
+	i = 0;
+	range = ft_sqrt(length) * 14 / 10;
+	while (stack_a->head)
+	{
+		if (stack_a->head->s_index <= i)
+		{
+			push(stack_b, stack_a, 'b', true);
+			rotate(stack_b, 'b', true);
+			i++;
+		}
+		else if (stack_a->head->s_index <= i + range)
+		{
+			push(stack_b, stack_a, 'b', true);
+			i++;
+		}
+		else
+			rotate(stack_a, 'a', true);
+	}
+}
+
+*/

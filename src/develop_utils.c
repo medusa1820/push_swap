@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 15:00:32 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/13 20:00:33 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/14 14:03:29 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void	print_argv(char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			printf("%c", argv[i][j]);
+			ft_printf("%c", argv[i][j]);
 			j++;
 		}
-		printf("\n");
+		ft_printf("\n");
 		i++;
 	}
 }
@@ -38,11 +38,11 @@ void	print_stack(t_node *node)
 	cursor = node;
 	while (cursor != NULL)
 	{
-		printf("%d -> ", cursor->num);
+		ft_printf("%d -> ", cursor->num);
 		cursor = cursor->next;
 	}
-	printf("NULL");
-	printf("\n");
+	ft_printf("NULL");
+	ft_printf("\n");
 }
 
 void	print_stack_index(t_node *node)
@@ -52,11 +52,11 @@ void	print_stack_index(t_node *node)
 	cursor = node;
 	while (cursor != NULL)
 	{
-		printf("%d -> ", cursor->index);
+		ft_printf("%d -> ", cursor->index);
 		cursor = cursor->next;
 	}
-	printf("index");
-	printf("\n");
+	ft_printf("index");
+	ft_printf("\n");
 }
 
 void	print_stack_reverse(t_node *node)
@@ -64,11 +64,11 @@ void	print_stack_reverse(t_node *node)
 	node = ft_lstlast_ps(node);
 	while (node != NULL)
 	{
-		printf("%d -> ", node->num);
+		ft_printf("%d -> ", node->num);
 		node = node->prev;
 	}
-	printf("NULL");
-	printf("\n");
+	ft_printf("NULL");
+	ft_printf("\n");
 }
 
 t_node	*ft_lstlast_ps(t_node *lst)

@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 16:19:53 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/12 16:56:32 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/14 13:06:08 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	rotate_b(struct s_2stacks *two_stacks)
 	if (two_stacks->stack_b && two_stacks->stack_b->next)
 	{
 		if (count_nodes(two_stacks->stack_b) == 2)
-			swap_a(two_stacks);
+			swap_b(two_stacks);
 		else
 		{
 			head = two_stacks->stack_b;
@@ -65,7 +65,7 @@ void	ra(struct s_2stacks *two_stacks)
 void	rb(struct s_2stacks *two_stacks)
 {
 	rotate_b(two_stacks);
-	ft_printf("ra\n");
+	ft_printf("rb\n");
 }
 
 void	rr(struct s_2stacks *two_stacks)

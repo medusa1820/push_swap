@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 22:03:36 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/05 22:03:43 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/14 14:01:37 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ gcc -Wall -Wextra -Werror -D BUFF_SIZE=42 bonus2.c
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
+// # include <stdio.h>
 
 // size_t	ft_strlen(const char *str);
 char	*ft_strnew(size_t size);
