@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:29:56 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/16 20:42:34 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/17 18:53:17 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,11 +86,11 @@ void	rr(struct s_2stacks *two_stacks);
 // sort_stack_3_nodes.c
 t_node	*find_max_node_stack_a(struct s_2stacks *two_stacks);
 void	sort_stack_3_nodes(struct s_2stacks *two_stacks);
-// void	circular_sort(struct s_2stacks *two_stacks);
 int		find_position_max_node(struct s_2stacks *two_stacks);
-void	circular_sort_new(struct s_2stacks *two_stacks);
-void	rotate_after_sort(struct s_2stacks *two_stacks);
-void	rotate_after_sort_new(struct s_2stacks *two_stacks);
+void	sort_four_five_elements(struct s_2stacks *two_stacks);
+void	rotate_after_sort_4(struct s_2stacks *two_stacks);
+void	sort_fifth_element(struct s_2stacks *two_stacks);
+void	rotate_after_sort_5(struct s_2stacks *two_stacks);
 
 // sort_stack.c
 int		ft_sqrt(int number);
