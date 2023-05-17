@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:29:56 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 00:04:39 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/18 00:20:02 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,6 @@ int		initial_check_before_5(struct s_2stacks *two_stacks);
 // sort_stack.c
 int		ft_sqrt(int number);
 int		count_r(t_node *stack, int index);
-void	index_input(char **input, int nr_nodes, struct s_2stacks *two_stacks);
 void	sort_stack_2b(struct s_2stacks *two_stacks, int nr_nodes);
 void	sort_stack_2a(struct s_2stacks *two_stacks, int nr_nodes);
 

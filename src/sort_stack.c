@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 18:36:41 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/14 19:39:27 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/18 00:19:35 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,35 +40,6 @@ int	count_r(t_node *stack, int index)
 		counter++;
 	}
 	return (counter);
-}
-
-void	index_input(char **input, int nr_nodes, struct s_2stacks *two_stacks)
-{
-	int		i;
-	int		*sorted_array;
-	t_node	*cursor;
-
-	i = 0;
-	sorted_array = (int *)malloc(sizeof(int) * (nr_nodes + 1));
-	while (input[i])
-	{
-		ps_atoi_ln(input[i], &sorted_array[i]);
-		i++;
-	}
-	bubble_sort(sorted_array, nr_nodes);
-	cursor = two_stacks->stack_a;
-	while (cursor)
-	{
-		i = 0;
-		while (i < nr_nodes)
-		{
-			if (cursor->num == sorted_array[i])
-				cursor->index = i;
-			i++;
-		}
-		cursor = cursor->next;
-	}
-	free(sorted_array);
 }
 
 void	sort_stack_2b(struct s_2stacks *two_stacks, int nr_nodes)
