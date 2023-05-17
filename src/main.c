@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:27:51 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/17 19:03:34 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/18 00:10:56 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	main(int argc, char **argv)
 	else if (nr_nodes == 3)
 		sort_stack_3_nodes(&two_stacks);
 	else if (nr_nodes == 5)
-		sort_four_five_elements(&two_stacks);
+		sort_stack_5_nodes(&two_stacks);
 	else
 	{
 		sort_stack_2b(&two_stacks, nr_nodes);
@@ -74,6 +74,4 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-// system("leaks push_swap");
-
-// bash push_swap_tester/tester.sh ../push_swap 100-102 100
+	// system("leaks push_swap");

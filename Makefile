@@ -18,6 +18,8 @@ SRC		:=	develop_utils_0.c \
 			rev_rotate_commands.c \
 			rotate_commands.c \
 			sort_stack_3_nodes.c \
+			sort_stack_5_nodes_utils.c \
+			sort_stack_5_nodes.c \
 			sort_stack.c \
 			stack_utils_0.c \
 			stack_utils_1.c \
