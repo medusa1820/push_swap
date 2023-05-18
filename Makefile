@@ -1,4 +1,5 @@
 NAME := push_swap
+BONUS_NAME := checker
 
 CC := gcc
 
@@ -10,8 +11,6 @@ SRC_DIR	=	./src/
 SRC		:=	develop_utils_0.c \
 			develop_utils_1.c \
 			exit_utils.c \
-			get_next_line_utils.c \
-			get_next_line.c \
 			input_ops.c \
 			main.c \
 			push_commands.c \
@@ -24,6 +23,10 @@ SRC		:=	develop_utils_0.c \
 			stack_utils_0.c \
 			stack_utils_1.c \
 			swap_commands.c \
+
+BONUS	:=	checker.c \
+			get_next_line_utils.c \
+			get_next_line.c
 
 HEADER = -I ./include -I ../LeakSanitizer 
 
@@ -50,4 +53,11 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+bonus:
+	${MAKE} $(BONUS_NAME) -j
+
+$(BONUS_NAME):
+	$(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
+	-o $(BONUS_NAME)
+
+.PHONY: all clean fclean re bonus

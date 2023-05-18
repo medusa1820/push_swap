@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:27:51 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 16:25:30 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/18 17:55:23 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,4 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-// system("leaks push_swap");
+	// system("leaks push_swap");
