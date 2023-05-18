@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:27:51 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 00:19:43 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/18 16:25:30 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	init_stack(char **input, struct s_2stacks *two_stacks, int *nr_nodes)
 	i = 0;
 	while (input[i])
 	{
-		if (!ps_atoi_ln(input[i], &num))
+		if (!ft_atoi_push_swap(input[i], &num))
 			exit_util(head, input);
 		if (is_duplicate(head, num))
 			exit_util(head, input);
@@ -56,7 +56,7 @@ void	index_input(char **input, int nr_nodes, struct s_2stacks *two_stacks)
 	sorted_array = (int *)malloc(sizeof(int) * (nr_nodes + 1));
 	while (input[i])
 	{
-		ps_atoi_ln(input[i], &sorted_array[i]);
+		ft_atoi_push_swap(input[i], &sorted_array[i]);
 		i++;
 	}
 	bubble_sort(sorted_array, nr_nodes);
@@ -94,8 +94,8 @@ int	main(int argc, char **argv)
 		sort_stack_5_nodes(&two_stacks);
 	else
 	{
-		sort_stack_2b(&two_stacks, nr_nodes);
-		sort_stack_2a(&two_stacks, nr_nodes);
+		sort_stack_to_b(&two_stacks, nr_nodes);
+		sort_stack_to_a(&two_stacks, nr_nodes);
 	}
 	free_2d_array(input);
 	free_stack(two_stacks.stack_a);
@@ -103,4 +103,4 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-	// system("leaks push_swap");
+// system("leaks push_swap");

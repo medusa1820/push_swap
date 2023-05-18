@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:29:56 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 00:20:02 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/18 16:28:53 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "get_next_line.h"
 # include <stdbool.h>
 // # include <limits.h>
-# include <math.h>
+// # include <math.h>
 # include <fcntl.h>
 
 // # include "../lib/ft_printf/libft/libft.h"
@@ -56,7 +56,7 @@ void	exit_util_sorted(t_node *head, char **input);
 // input_ops.c
 char	*ft_strjoin_ps(char const *s1, char const *s2);
 char	*join_inputs(char **argv);
-bool	ps_atoi_ln(const char *str, int *result);
+int		ft_atoi_push_swap(const char *str, int *result);
 void	bubble_sort(int arr[], int size);
 
 // main.c
@@ -99,9 +99,9 @@ int		initial_check_before_5(struct s_2stacks *two_stacks);
 
 // sort_stack.c
 int		ft_sqrt(int number);
-int		count_r(t_node *stack, int index);
-void	sort_stack_2b(struct s_2stacks *two_stacks, int nr_nodes);
-void	sort_stack_2a(struct s_2stacks *two_stacks, int nr_nodes);
+int		rotations_nr(t_node *stack, int index);
+void	sort_stack_to_b(struct s_2stacks *two_stacks, int nr_nodes);
+void	sort_stack_to_a(struct s_2stacks *two_stacks, int nr_nodes);
 
 // stack_utils_0.c
 t_node	*create_node(int num);
