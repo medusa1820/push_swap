@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 20:00:20 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 16:28:39 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/18 17:45:27 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,10 @@ int	ft_atoi_push_swap(const char *str, int *result)
 {
 	int		i;
 	int		sign;
-	long	temp;
+	long	output;
 
 	i = 0;
 	sign = 1;
-	temp = 0;
 	if (str[0] == '+' || str[0] == '-')
 	{
 		if (str[0] == '-')
@@ -68,14 +67,15 @@ int	ft_atoi_push_swap(const char *str, int *result)
 	}
 	if (str[i] == 0)
 		return (0);
+	output = 0;
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
 			return (0);
-		temp = (sign * (str[i++] - '0') + (temp * 10));
-		if (temp > INT_MAX || temp < INT_MIN)
+		output = (sign * (str[i++] - '0') + (output * 10));
+		if (output > INT_MAX || output < INT_MIN)
 			return (0);
-		*result = temp;
+		*result = output;
 	}
 	return (1);
 }

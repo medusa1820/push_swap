@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 18:36:41 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 16:22:13 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/18 17:48:39 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,12 @@ int	ft_sqrt(int n)
 	}
 }
 
-
 void	sort_stack_to_b(struct s_2stacks *two_stacks, int nr_nodes)
 {
 	int		i;
 	int		range;
 
 	range = ft_sqrt(nr_nodes) * 1.5;
-	// ft_printf("sqrt: %d\n", ft_sqrt(nr_nodes));
-	// ft_printf("sqrt: %d\n", range / 1.5);
-	// ft_printf("sqrt: %d\n", range);
-	// print_stack_index(two_stacks->stack_a);
 	i = 0;
 	while (two_stacks->stack_a)
 	{
