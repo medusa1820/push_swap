@@ -23,11 +23,19 @@ SRC		:=	develop_utils_0.c \
 			sort_stack.c \
 			stack_utils_0.c \
 			stack_utils_1.c \
-			swap_commands.c \
+			swap_commands.c
 
 BONUS	:=	checker.c \
 			get_next_line_utils.c \
-			get_next_line.c
+			get_next_line.c \
+			main_utils.c \
+			input_ops.c \
+			stack_utils_0.c \
+			stack_utils_1.c \
+			exit_utils.c \
+			rev_rotate_commands.c \
+			rotate_commands.c \
+			swap_commands.c
 
 HEADER = -I ./include -I ../LeakSanitizer 
 
@@ -50,7 +58,7 @@ clean:
 	${MAKE} -C $(LIBFT_PRINTF_DIR) fclean
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUS_NAME)
 
 re: fclean all
 
@@ -58,7 +66,9 @@ bonus:
 	${MAKE} $(BONUS_NAME) -j
 
 $(BONUS_NAME):
-	$(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
+# $(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
 	-o $(BONUS_NAME)
+	$(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
+	-o $(BONUS_NAME) -L ../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next
 
 .PHONY: all clean fclean re bonus

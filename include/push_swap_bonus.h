@@ -6,14 +6,14 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:56:31 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 20:19:17 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/18 21:59:59 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 # include "push_swap.h"
-# include "../lib/ft_printf/ft_printf.h"
+// # include "../lib/ft_printf/ft_printf.h"
 
 // checker.c
 int		main(int argc, char **argv);
@@ -22,6 +22,7 @@ void	free_split(char **split);
 int		do_instructions(struct s_2stacks *two_stacks, char *op);
 void	push_b(struct s_2stacks *two_stacks);
 void	push_a(struct s_2stacks *two_stacks);
+void	init_stack_checker(char **input, struct s_2stacks *two_stacks, int *nr_nodes);
 
 
 // get_next_line_utils.c

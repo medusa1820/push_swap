@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:02:31 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 20:20:56 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/18 22:14:02 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ int	main(int argc, char **argv)
 
 	two_stacks.stack_a = NULL;
 	two_stacks.stack_b = NULL;
+	if (argc < 2)
+		exit(1);
 	input = prepare_input(argv);
-	init_stack(input, &two_stacks, &nr_nodes);
+	init_stack_checker(input, &two_stacks, &nr_nodes);
 	index_input(input, nr_nodes, &two_stacks);
 	if (process_instructions(&two_stacks) == 1)
 		exit_util(two_stacks.stack_a, input);
@@ -30,6 +32,9 @@ int	main(int argc, char **argv)
 	else
 		write(1, "KO\n", 3);
 	// ft_error(&a, &b, 0);
+	free_2d_array(input);
+	free_stack(two_stacks.stack_a);
+	free_stack(two_stacks.stack_b);
 	return (0);
 }
 
@@ -149,4 +154,27 @@ void	push_a(struct s_2stacks *two_stacks)
 		two_stacks->stack_a->prev = temp;
 		two_stacks->stack_a = temp;
 	}
+}
+
+void	init_stack_checker(char **input, struct s_2stacks *two_stacks, int *nr_nodes)
+{
+	t_node	*head;
+	int		i;
+	int		num;
+
+	head = NULL;
+	i = 0;
+	while (input[i])
+	{
+		if (!ft_atoi_push_swap(input[i], &num))
+			exit_util(head, input);
+		if (is_duplicate(head, num))
+			exit_util(head, input);
+		add_node(&head, num);
+		i++;
+	}
+	// if (is_sorted(head))
+	// 	exit_util_sorted(head, input);
+	two_stacks->stack_a = head;
+	*nr_nodes = count_nodes(two_stacks->stack_a);
 }
