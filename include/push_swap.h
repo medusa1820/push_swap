@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:29:56 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 16:28:53 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/18 20:25:36 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,12 @@ int		ft_atoi_push_swap(const char *str, int *result);
 void	bubble_sort(int arr[], int size);
 
 // main.c
+int		main(int argc, char **argv);
+
+// main_utils.c
 char	**prepare_input(char **argv);
 void	init_stack(char **input, struct s_2stacks *two_stacks, int *nr_nodes);
 void	index_input(char **input, int nr_nodes, struct s_2stacks *two_stacks);
-int		main(int argc, char **argv);
 
 // push_command.c
 void	pb(struct s_2stacks *two_stacks);

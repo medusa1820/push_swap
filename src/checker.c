@@ -6,11 +6,11 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:02:31 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 19:48:13 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/18 20:20:56 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	main(int argc, char **argv)
 {
@@ -54,6 +54,19 @@ int	process_instructions(struct s_2stacks *two_stacks)
 	return (0);
 }
 
+void	free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+}
+
 int	do_instructions(struct s_2stacks *two_stacks, char *op)
 {
 	if (ft_strncmp(op, "sa\n", 3) == 0)
@@ -90,4 +103,50 @@ int	do_instructions(struct s_2stacks *two_stacks, char *op)
 	else
 		error_message();
 	return (0);
+}
+
+void	push_b(struct s_2stacks *two_stacks)
+{
+	t_node	*temp;
+
+	if (!two_stacks->stack_a)
+		return ;
+	temp = two_stacks->stack_a;
+	two_stacks->stack_a = two_stacks->stack_a->next;
+	if (two_stacks->stack_a)
+		two_stacks->stack_a->prev = NULL;
+	if (!two_stacks->stack_b)
+	{
+		two_stacks->stack_b = temp;
+		two_stacks->stack_b->next = NULL;
+	}
+	else
+	{
+		temp->next = two_stacks->stack_b;
+		two_stacks->stack_b->prev = temp;
+		two_stacks->stack_b = temp;
+	}
+}
+
+void	push_a(struct s_2stacks *two_stacks)
+{
+	t_node	*temp;
+
+	if (!two_stacks->stack_b)
+		return ;
+	temp = two_stacks->stack_b;
+	two_stacks->stack_b = two_stacks->stack_b->next;
+	if (two_stacks->stack_b)
+		two_stacks->stack_b->prev = NULL;
+	if (!two_stacks->stack_a)
+	{
+		two_stacks->stack_a = temp;
+		two_stacks->stack_a->next = NULL;
+	}
+	else
+	{
+		temp->next = two_stacks->stack_a;
+		two_stacks->stack_a->prev = temp;
+		two_stacks->stack_a = temp;
+	}
 }

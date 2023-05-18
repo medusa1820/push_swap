@@ -12,6 +12,7 @@ SRC		:=	develop_utils_0.c \
 			develop_utils_1.c \
 			exit_utils.c \
 			input_ops.c \
+			main_utils.c \
 			main.c \
 			push_commands.c \
 			rev_rotate_commands.c \

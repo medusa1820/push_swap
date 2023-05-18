@@ -6,18 +6,23 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:56:31 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 20:01:02 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/18 20:19:17 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 # include "push_swap.h"
+# include "../lib/ft_printf/ft_printf.h"
 
 // checker.c
 int		main(int argc, char **argv);
 int		process_instructions(struct s_2stacks *two_stacks);
+void	free_split(char **split);
 int		do_instructions(struct s_2stacks *two_stacks, char *op);
+void	push_b(struct s_2stacks *two_stacks);
+void	push_a(struct s_2stacks *two_stacks);
+
 
 // get_next_line_utils.c
 char	*ft_strnew(size_t size);
