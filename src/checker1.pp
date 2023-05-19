@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/18 19:02:31 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/19 20:14:07 by musenov          ###   ########.fr       */
+/*   Created: 2023/05/19 17:41:26 by musenov           #+#    #+#             */
+/*   Updated: 2023/05/19 18:22:34 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,38 +41,13 @@ int	main(int argc, char **argv)
 
 void	exit_util_checker(struct s_2stacks *two_stacks, char **input)
 {
-	free_stack(two_stacks->stack_a);
-	free_stack(two_stacks->stack_b);
+	if (count_nodes(two_stacks->stack_a) != 0)
+		free_stack(two_stacks->stack_a);
+	if (count_nodes(two_stacks->stack_b) != 0)
+		free_stack(two_stacks->stack_b);
 	free_2d_array(input);
 	// system("leaks checker");
 	error_message();
-}
-
-int	process_instructions(struct s_2stacks *two_stacks)
-{
-	char	**split;
-	char	*line;
-	int		i;
-
-	line = get_next_line(STDIN_FILENO);
-	while (line)
-	{
-		split = ft_split(line, ' ');
-		i = -1;
-		while (split[++i])
-		{
-			if (do_instructions(two_stacks, split[i]) == 1)
-			{
-				free(line);
-				free_split(split);
-				return (1);
-			}
-		}
-		free(line);
-		free_split(split);
-		line = get_next_line(STDIN_FILENO);
-	}
-	return (0);
 }
 
 int	ft_putstr(char	*s)
@@ -93,65 +68,16 @@ int	ft_putstr(char	*s)
 	return (i);
 }
 
-// int	process_instructions(struct s_2stacks *two_stacks)
-// {
-// 	// char	**split;
-// 	char	*line;
-// 	// int		i;
-
-// 	line = get_next_line(STDIN_FILENO);
-// 	while (line)
-// 	{
-// 		if (do_instructions(two_stacks, line) == 1)
-// 		{
-// 			free(line);
-// 			// free_split(split);
-// 			return (1);
-// 		}
-// 		free(line);
-// 		// free_split(split);
-// 		line = get_next_line(STDIN_FILENO);
-// 	}
-// 	return (0);
-// }
-
-/*
-
-static bool	operations(t_stack *stack)
-{
-	char	*operation;
-
-	while (1)
-	{
-		operation = get_next_line(0);
-		if (operation == NULL)
-			return (true);
-		if (exec_operation(stack, operation))
-			return (free(operation), false);
-		free(operation);
-	}
-}
-
-
-
-*/
-
-
-
-
-
-
-/*
 int	process_instructions(struct s_2stacks *two_stacks)
 {
 	char	*instruction;
 
 	while (1)
 	{
-		instruction = get_next_line(STDIN_FILENO);
+		instruction = get_next_line(0);
 		if (instruction == NULL)
 		{
-			free(instruction);
+			// free(instruction);
 			return (0);
 		}
 		if (do_instructions(two_stacks, instruction) == 1)
@@ -159,18 +85,25 @@ int	process_instructions(struct s_2stacks *two_stacks)
 			free(instruction);
 			return (1);
 		}
-		// if (exec_operation(stack, operation))
-		// 	return (free(operation), false);
 		free(instruction);
 	}
 	return (0);
 }
-*/
 
+// static bool	operations(t_stack *stack)
+// {
+// 	char	*operation;
 
-
-
-
+// 	while (1)
+// 	{
+// 		operation = get_next_line(0);
+// 		if (operation == NULL)
+// 			return (true);
+// 		if (exec_operation(stack, operation))
+// 			return (free(operation), false);
+// 		free(operation);
+// 	}
+// }
 
 void	free_split(char **split)
 {

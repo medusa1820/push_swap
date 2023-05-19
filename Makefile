@@ -3,7 +3,7 @@ BONUS_NAME := checker
 
 CC := gcc
 
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 LDFLAGS = -flto -O3 -march=nocona -g
 
 SRC_DIR	=	./src/
@@ -51,9 +51,9 @@ libft_printf:
 	${MAKE} -C $(LIBFT_PRINTF_DIR) -j
 
 $(NAME):
-	$(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(SRC)) $(HEADER) $(LIBFT_PRINTF) \
-	-o $(NAME)
 # $(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(SRC)) $(HEADER) $(LIBFT_PRINTF) \
+	-o $(NAME)
+	$(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(SRC)) $(HEADER) $(LIBFT_PRINTF) \
 	-o $(NAME) -L ../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next
 
 clean:
@@ -70,7 +70,7 @@ bonus:
 $(BONUS_NAME):
 # $(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
 	-o $(BONUS_NAME)
-	$(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
+	$(CC) $(CFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
 	-o $(BONUS_NAME) -L ../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next
 
 .PHONY: all clean fclean re bonus
