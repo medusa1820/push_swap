@@ -25,7 +25,9 @@ SRC		:=	develop_utils_0.c \
 			stack_utils_1.c \
 			swap_commands.c
 
-BONUS	:=	checker.c \
+BONUS	:=	develop_utils_0.c \
+			develop_utils_1.c \
+			checker.c \
 			get_next_line_utils.c \
 			get_next_line.c \
 			main_utils.c \

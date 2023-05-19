@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:56:31 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 21:59:59 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/19 15:20:51 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int		do_instructions(struct s_2stacks *two_stacks, char *op);
 void	push_b(struct s_2stacks *two_stacks);
 void	push_a(struct s_2stacks *two_stacks);
 void	init_stack_checker(char **input, struct s_2stacks *two_stacks, int *nr_nodes);
+void	exit_util_checker(struct s_2stacks *two_stacks, char **input);
 
 
 // get_next_line_utils.c
