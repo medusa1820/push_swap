@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:02:31 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/21 16:13:51 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/21 16:17:39 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	process_instructions(struct s_2stacks *two_stacks)
 		ft_printf("Error allocating memory");
 		return (-1);
 	}
-	read_len = read(0, buffer, 3);
+	read_len = read(0, buffer, 4);
 	while (read_len > 0)
 	{
 		if (do_instructions(two_stacks, buffer) == 1)
@@ -86,7 +86,7 @@ int	process_instructions(struct s_2stacks *two_stacks)
 			free(buffer);
 			return (1);
 		}
-		read_len = read(0, buffer, 3);
+		read_len = read(0, buffer, 4);
 	}
 	free(buffer);
 	return (0);
