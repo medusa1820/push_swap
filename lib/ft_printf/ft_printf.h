@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 20:27:03 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/14 14:00:12 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/21 15:18:10 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_PRINTF_H
 
 // # include <stdio.h>
-
 # include <stdarg.h>
 # include <limits.h>
 

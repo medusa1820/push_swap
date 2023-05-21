@@ -6,11 +6,11 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:35:37 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/05 22:26:42 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/21 15:24:04 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 char	*get_next_line(int fd)
 {

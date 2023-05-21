@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:02:31 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/19 20:14:07 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/21 16:13:51 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	main(int argc, char **argv)
 	index_input(input, nr_nodes, &two_stacks);
 	if (process_instructions(&two_stacks) == 1)
 		exit_util_checker(&two_stacks, input);
-	if (is_sorted(two_stacks.stack_a))
+	if (is_sorted(two_stacks.stack_a) && \
+		nr_nodes == count_nodes(two_stacks.stack_a))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
@@ -48,56 +49,9 @@ void	exit_util_checker(struct s_2stacks *two_stacks, char **input)
 	error_message();
 }
 
-int	process_instructions(struct s_2stacks *two_stacks)
-{
-	char	**split;
-	char	*line;
-	int		i;
-
-	line = get_next_line(STDIN_FILENO);
-	while (line)
-	{
-		split = ft_split(line, ' ');
-		i = -1;
-		while (split[++i])
-		{
-			if (do_instructions(two_stacks, split[i]) == 1)
-			{
-				free(line);
-				free_split(split);
-				return (1);
-			}
-		}
-		free(line);
-		free_split(split);
-		line = get_next_line(STDIN_FILENO);
-	}
-	return (0);
-}
-
-int	ft_putstr(char	*s)
-{
-	int	i;
-
-	i = 0;
-	if (!s)
-	{
-		if (write(1, "(null)", 6) != 6)
-			return (-1);
-		return (6);
-	}
-	while (*(s + i))
-		i++;
-	if (write(1, s, i) != i)
-		return (-1);
-	return (i);
-}
-
 // int	process_instructions(struct s_2stacks *two_stacks)
 // {
-// 	// char	**split;
 // 	char	*line;
-// 	// int		i;
 
 // 	line = get_next_line(STDIN_FILENO);
 // 	while (line)
@@ -105,84 +59,37 @@ int	ft_putstr(char	*s)
 // 		if (do_instructions(two_stacks, line) == 1)
 // 		{
 // 			free(line);
-// 			// free_split(split);
 // 			return (1);
 // 		}
 // 		free(line);
-// 		// free_split(split);
 // 		line = get_next_line(STDIN_FILENO);
 // 	}
 // 	return (0);
 // }
 
-/*
-
-static bool	operations(t_stack *stack)
-{
-	char	*operation;
-
-	while (1)
-	{
-		operation = get_next_line(0);
-		if (operation == NULL)
-			return (true);
-		if (exec_operation(stack, operation))
-			return (free(operation), false);
-		free(operation);
-	}
-}
-
-
-
-*/
-
-
-
-
-
-
-/*
 int	process_instructions(struct s_2stacks *two_stacks)
 {
-	char	*instruction;
+	char	*buffer;
+	int		read_len;
 
-	while (1)
+	buffer = (char *)malloc(4);
+	if (buffer == NULL)
 	{
-		instruction = get_next_line(STDIN_FILENO);
-		if (instruction == NULL)
+		ft_printf("Error allocating memory");
+		return (-1);
+	}
+	read_len = read(0, buffer, 3);
+	while (read_len > 0)
+	{
+		if (do_instructions(two_stacks, buffer) == 1)
 		{
-			free(instruction);
-			return (0);
-		}
-		if (do_instructions(two_stacks, instruction) == 1)
-		{
-			free(instruction);
+			free(buffer);
 			return (1);
 		}
-		// if (exec_operation(stack, operation))
-		// 	return (free(operation), false);
-		free(instruction);
+		read_len = read(0, buffer, 3);
 	}
+	free(buffer);
 	return (0);
-}
-*/
-
-
-
-
-
-
-void	free_split(char **split)
-{
-	int	i;
-
-	i = 0;
-	while (split[i])
-	{
-		free(split[i]);
-		i++;
-	}
-	free(split);
 }
 
 int	do_instructions(struct s_2stacks *two_stacks, char *op)
@@ -290,4 +197,22 @@ void	init_stack_checker(char **input, struct s_2stacks *two_stacks, int *nr_node
 	// 	exit_util_sorted(head, input);
 	two_stacks->stack_a = head;
 	*nr_nodes = count_nodes(two_stacks->stack_a);
+}
+
+int	ft_putstr(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+	{
+		if (write(1, "(null)", 6) != 6)
+			return (-1);
+		return (6);
+	}
+	while (*(s + i))
+		i++;
+	if (write(1, s, i) != i)
+		return (-1);
+	return (i);
 }

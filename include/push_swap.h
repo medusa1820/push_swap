@@ -6,18 +6,17 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:29:56 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 20:25:36 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/21 15:37:12 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "get_next_line.h"
 # include <stdbool.h>
 // # include <limits.h>
 // # include <math.h>
-# include <fcntl.h>
+// # include <fcntl.h>
 
 // # include "../lib/ft_printf/libft/libft.h"
 # include "../lib/ft_printf/ft_printf.h"
