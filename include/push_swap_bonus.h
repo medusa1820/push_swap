@@ -6,13 +6,14 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:56:31 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/21 17:05:34 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/22 22:22:58 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_BONUS_H
 # define PUSH_SWAP_BONUS_H
 # include "push_swap.h"
+# include "get_next_line.h"
 
 // checker_main.c
 int		main(int argc, char **argv);

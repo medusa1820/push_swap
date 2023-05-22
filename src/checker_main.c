@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 19:02:31 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/21 17:47:46 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/22 22:57:35 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +39,46 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
+// int	process_instructions(struct s_2stacks *two_stacks)
+// {
+// 	char	*buffer;
+// 	int		read_len;
+
+// 	buffer = (char *)malloc(4);
+// 	if (buffer == NULL)
+// 	{
+// 		ft_printf("Error allocating memory for buffer in checker");
+// 		return (-1);
+// 	}
+// 	read_len = read(0, buffer, 4);
+// 	while (read_len > 0)
+// 	{
+// 		if (do_instructions(two_stacks, buffer) == 1)
+// 		{
+// 			free(buffer);
+// 			return (1);
+// 		}
+// 		read_len = read(0, buffer, 4);
+// 	}
+// 	free(buffer);
+// 	return (0);
+// }
+
 int	process_instructions(struct s_2stacks *two_stacks)
 {
-	char	*buffer;
-	int		read_len;
+	char	*line;
 
-	buffer = (char *)malloc(4);
-	if (buffer == NULL)
+	line = get_next_line(STDIN_FILENO);
+	while (line)
 	{
-		ft_printf("Error allocating memory for buffer in checker");
-		return (-1);
-	}
-	read_len = read(0, buffer, 4);
-	while (read_len > 0)
-	{
-		if (do_instructions(two_stacks, buffer) == 1)
+		if (do_instructions(two_stacks, line) == 1)
 		{
-			free(buffer);
+			free(line);
 			return (1);
 		}
-		read_len = read(0, buffer, 4);
+		free(line);
+		line = get_next_line(STDIN_FILENO);
 	}
-	free(buffer);
 	return (0);
 }
 

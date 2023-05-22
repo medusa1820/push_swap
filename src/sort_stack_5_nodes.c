@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 23:42:50 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/18 15:48:36 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/22 22:40:53 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	sort_stack_5_nodes(struct s_2stacks *two_stacks)
 
 void	sort_after_add_fourth(struct s_2stacks *two_stacks)
 {
-	t_node	max_node;
+	// t_node	max_node;
 	int		position;
 
 	position = find_position_max_node(two_stacks);
@@ -83,7 +83,7 @@ void	add_fifth_node(struct s_2stacks *two_stacks)
 
 void	sort_after_add_fifth(struct s_2stacks *two_stacks)
 {
-	t_node	max_node;
+	// t_node	max_node;
 	int		position;
 
 	position = find_position_max_node(two_stacks);

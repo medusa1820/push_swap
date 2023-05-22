@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:27:51 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/21 17:47:49 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/22 22:42:19 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 	input = prepare_input(argv);
 	init_stack(input, &two_stacks, &nr_nodes);
 	index_input(input, nr_nodes, &two_stacks);
+	sa(&two_stacks);
 	if (nr_nodes == 2)
 		sa(&two_stacks);
 	else if (nr_nodes == 3)

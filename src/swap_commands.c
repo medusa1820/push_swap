@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 17:55:08 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/14 16:32:13 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/22 22:36:24 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ void	swap_b(struct s_2stacks *two_stacks)
 
 void	sa(struct s_2stacks *two_stacks)
 {
+	// print_stack(two_stacks->stack_a);
 	swap_a(two_stacks);
+	// print_stack(two_stacks->stack_a);
 	ft_printf("sa\n");
 }
 
