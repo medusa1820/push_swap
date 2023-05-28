@@ -3,8 +3,8 @@ BONUS_NAME := checker
 
 CC := gcc
 
-CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
-# CFLAGS = -Wall -Werror -Wextra -g
+# CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -g
 LDFLAGS = -flto -O3 -march=nocona -g
 
 SRC_DIR	=	./src/
@@ -32,7 +32,6 @@ BONUS	:=	checker_main.c \
 			develop_utils_0.c \
 			develop_utils_1.c \
 			exit_utils.c \
-			get_next_line_utils.c \
 			get_next_line.c \
 			input_ops.c \
 			main_utils.c \
@@ -41,6 +40,8 @@ BONUS	:=	checker_main.c \
 			stack_utils_0.c \
 			stack_utils_1.c \
 			swap_commands.c
+
+# get_next_line_utils.c \
 
 HEADER = -I ./include -I ../LeakSanitizer 
 
@@ -76,19 +77,19 @@ $(NAME):
 	-o $(NAME)
 # $(CC) $(CFLAGS) $(addprefix $(SRC_DIR),$(SRC)) $(HEADER) $(LIBFT_PRINTF) \
 	-o $(NAME)
-	$(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(SRC)) $(HEADER) $(LIBFT_PRINTF) \
+# $(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(SRC)) $(HEADER) $(LIBFT_PRINTF) \
 	-o $(NAME) -L ../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next
-# $(CC) $(CFLAGS) $(addprefix $(SRC_DIR),$(SRC)) $(HEADER) $(LIBFT_PRINTF) \
+	$(CC) $(CFLAGS) $(addprefix $(SRC_DIR),$(SRC)) $(HEADER) $(LIBFT_PRINTF) \
 	-o $(NAME) -L ../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next
 
 $(BONUS_NAME):
 # $(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
 	-o $(BONUS_NAME)
-# $(CC) $(CFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
+	$(CC) $(CFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
 	-o $(BONUS_NAME)
-	$(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
+# $(CC) $(LDFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
 	-o $(BONUS_NAME) -L ../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next
-# (CC) $(CFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
+# $(CC) $(CFLAGS) $(addprefix $(SRC_DIR),$(BONUS)) $(HEADER) $(LIBFT_PRINTF) \
 	-o $(BONUS_NAME) -L ../LeakSanitizer -llsan -lc++ -Wno-gnu-include-next
 
 .PHONY: libft_printf clean all fclean re bonus bonus_fclean re_bonus re_all

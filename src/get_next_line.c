@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/18 19:35:37 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/22 22:29:49 by musenov          ###   ########.fr       */
+/*   Created: 2023/05/28 17:01:45 by musenov           #+#    #+#             */
+/*   Updated: 2023/05/28 18:40:09 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,85 +14,85 @@
 
 char	*get_next_line(int fd)
 {
-	static char		*left;
-	char			*p_n;
-	char			*line;
-	int				read_len;
+	int		i;
+	int		rd;
+	char	character;
+	char	*buffer;
 
-	p_n = NULL;
-	if (!(check_left(&left, &line, &p_n)) && !line)
+	i = 0;
+	rd = 0;
+	buffer = malloc(100000);
+	if (BUFFER_SIZE <= 0)
 		return (NULL);
-	while (!p_n)
+	rd = read(fd, &character, BUFFER_SIZE - BUFFER_SIZE + 1);
+	while (rd > 0)
 	{
-		read_len = read_to_buf(&left, &line, &p_n, &fd);
-		if ((read_len < 0) || (read_len == 0 && *line == '\0'))
-			return (free(line), NULL);
-		if (read_len == 0 && *line != '\0')
-			return (line);
-		if (read_len > 0)
-		{
-			if (p_n && !left)
-				return (free(line), free(left), left = NULL, NULL);
-			if (!line)
-				return (free(left), left = NULL, NULL);
-		}
+		buffer[i++] = character;
+		if (character == '\n')
+			break ;
+		rd = read(fd, &character, BUFFER_SIZE - BUFFER_SIZE + 1);
 	}
-	return (line);
+	buffer[i] = '\0';
+	if (rd == -1 || i == 0 || (!buffer[i - 1] && !rd))
+		return (free(buffer), NULL);
+	return (buffer);
 }
 
-char	*check_left(char **left, char **line, char **p_n)
-{
-	char	*temp;
+// int		i = 0;
+// 	int		rd = 0;
+// 	char	character;
+// 	char	*buffer = malloc(100000);
 
-	if (*left)
-		*p_n = ft_strchr(*left, '\n');
-	if (*left && *p_n)
-	{
-		temp = ft_strdup_gnl(++*p_n);
-		if (!temp)
-			return (free(*left), *left = NULL, *line = NULL, NULL);
-		**p_n = '\0';
-		*line = ft_strdup_gnl(*left);
-		if (!*line)
-			return (free(temp), temp = NULL, free(*left), *left = NULL, NULL);
-		free(*left);
-		*left = temp;
-	}
-	else if (*left && !*p_n)
-	{
-		*line = ft_strdup_gnl(*left);
-		free(*left);
-		*left = NULL;
-	}
-	else
-		*line = ft_strnew(1);
-	return (*p_n);
-}
+// int	ft_strlen_gnl(char *string)
+// {
+// 	int	count;
 
-int	read_to_buf(char **left, char **line, char **p_n, int *fd)
-{
-	char	buf[BUFFER_SIZE + 1];
-	int		read_len;
+// 	count = 0;
+// 	while (string[count])
+// 		count++;
+// 	return (count);
+// }
 
-	read_len = read(*fd, buf, BUFFER_SIZE);
-	if ((read_len < 0) || (read_len == 0 && **line == '\0'))
-		return (read_len);
-	if (read_len == 0 && **line != '\0')
-		return (read_len);
-	if (read_len > 0)
-	{
-		buf[read_len] = '\0';
-		*p_n = ft_strchr(buf, '\n');
-		if (*p_n)
-		{
-			*left = ft_strdup_gnl(++*p_n);
-			if (!*left)
-				return (read_len);
-			**p_n = '\0';
-		}
-		*line = ft_strjoin_gnl(*line, buf);
-		if (!*line)
-			return (read_len);
-	}
-	return (read_len);
-}
+// char	*ft_strdup_gnl(char *string)
+// {
+// 	int		i;
+// 	int		size;
+// 	char	*duplicate;
+
+// 	i = 0;
+// 	size = ft_strlen_gnl(string);
+// 	duplicate = malloc(sizeof(char) * (size + 1));
+// 	if (!duplicate)
+// 		return (0);
+// 	while (string[i])
+// 	{
+// 		duplicate[i] = string[i];
+// 		i++;
+// 	}
+// 	duplicate[i] = '\0';
+// 	return (duplicate);
+// }
+
+// char	*get_next_line(int fd)
+// {
+// 	char	buffer;
+// 	char	line[7000000];
+// 	int		b;
+// 	int		i;
+
+// 	if (fd < 0 || BUFFER_SIZE <= 0)
+// 		return (NULL);
+// 	i = 0;
+// 	b = read(fd, &buffer, 1);
+// 	while (b > 0)
+// 	{
+// 		line[i++] = buffer;
+// 		if (buffer == '\n')
+// 			break ;
+// 		b = read(fd, &buffer, 1);
+// 	}
+// 	line[i] = '\0';
+// 	if (b <= 0 && i == 0)
+// 		return (NULL);
+// 	return (ft_strdup_gnl(line));
+// }

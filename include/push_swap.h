@@ -6,7 +6,7 @@
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 19:29:56 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/21 17:08:00 by musenov          ###   ########.fr       */
+/*   Updated: 2023/05/28 18:33:08 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	index_input(char **input, int nr_nodes, struct s_2stacks *two_stacks);
 
 // main.c
 int		main(int argc, char **argv);
+// int		main(NULL, char **argv);
 
 // push_commands.c
 void	pb(struct s_2stacks *two_stacks);

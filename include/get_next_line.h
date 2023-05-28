@@ -5,40 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: musenov <musenov@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 19:48:54 by musenov           #+#    #+#             */
-/*   Updated: 2023/05/22 22:56:07 by musenov          ###   ########.fr       */
+/*   Created: 2022/11/12 22:08:36 by htsang            #+#    #+#             */
+/*   Updated: 2023/05/28 18:10:50 by musenov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-/*
-
-# define BUFF_SIZE 0 -> this will not work as we have to 
-first check if BUFF_SIZE was defined before, e.g. among 
-others in compilatin flags:
-
-gcc -Wall -Wextra -Werror -D BUFF_SIZE=42 bonus2.c
-
-*/
-
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 41
+#  define BUFFER_SIZE 10
 # endif
 
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 
-size_t	ft_strlen(const char *str);
-char	*ft_strnew(size_t size);
-char	*ft_strchr(const char *s, int c);
-char	*ft_strdup_gnl(char *s1);
-char	*ft_strjoin_gnl(char const *s1, char const *s2);
+// char	*get_next_line(int fd);
+// char	*ft_strncpy(char *dest, const char *src, size_t n);
+// char	*ft_strljoin(char *target, char const *str, size_t len);
+// char	*ft_strdup(const char *str);
 
-int		read_to_buf(char **left, char **line, char **p_n, int *fd);
-char	*check_left(char **left, char **line, char **p_n);
+//gnl_simple
+// int		ft_strlen_gnl(char *string);
+// char	*ft_strdup_gnl(char *string);
 char	*get_next_line(int fd);
 
 #endif
